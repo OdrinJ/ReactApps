@@ -50,29 +50,29 @@ const navScreens = [
         }
     }
     componentWillMount(){
-        this.props.history.push(this.state.activeKey.split('#')[1]);
+        this.props.history.replace(this.state.activeKey.split('#')[1]);
     }
     onClick = (index) => {
         console.log('hi', index)
     }
     render (){
         return (
-            <Container>
-                <div className=""></div>
-                <Navbar bg="light" expand="xs" fixed="bottom">
-                    <Nav className="mr-auto" fill variant="pills" defaultActiveKey={this.state.activeKey} onSelect={k => this.onClick(k)}>
+            <Navbar expand="sm" fixed="bottom" className="justify-content-between">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto" defaultActiveKey={this.state.activeKey} onSelect={k => this.onClick(k)}>
                         {navScreens.map(data => (
                             <Nav.Link href={"#/nav" + data.id} key={data.id}>
-                                <div className="text-center p-5" style={{textAlign: 'center'}}>
+                                <div className="nav-detail">
                                     <span style={{margin: 0+'px'}}>{data.name}</span>
                                     <p style={{margin: 0+'px', wordBreak: 'break-word', whiteSpace: 'nowrap'}}>{data.info}</p>
                                     <span>{data.description}</span>
-                                </div>                            
+                                </div>
                             </Nav.Link>
-                        ))}   
+                        ))}
                     </Nav>
-                </Navbar>
-            </Container>
+                </Navbar.Collapse>
+            </Navbar>
         )
     }
 }

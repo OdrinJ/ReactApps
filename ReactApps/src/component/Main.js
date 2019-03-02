@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {HashRouter,Route,Switch} from 'react-router-dom'
 import NavMenu from './Nav/NavMenu'
-
+import 'bootstrap/dist/css/bootstrap.css';
 import Nav1 from './Middle/Nav1'
 import Nav2 from './Middle/Nav2'
 import Nav3 from './Middle/Nav3'
